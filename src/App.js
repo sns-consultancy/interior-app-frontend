@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  Link
+} from "react-router-dom";
+import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
@@ -57,11 +64,7 @@ function HomePage() {
           <Link to="/3droom">3D Room</Link>
         </div>
       </div>
-      <img
-        src={images[currentImage]}
-        alt="Interior Example"
-        className="logo"
-      />
+      <img src={images[currentImage]} alt="Interior Example" className="logo" />
       <div className="language-select">
         <label htmlFor="langSelect">Language:</label>
         <select
@@ -72,7 +75,7 @@ function HomePage() {
           <option value="en">English</option>
           <option value="fr">Français</option>
           <option value="es">Español</option>
-          <option value="hi">हिन्दీ</option>
+          <option value="hi">हिन्दी</option>
           <option value="te">తెలుగు</option>
         </select>
       </div>
@@ -81,48 +84,40 @@ function HomePage() {
       <button id="loginBtn" onClick={() => navigate("/login")}>
         {loginLabel}
       </button>
-      <>
-  <footer>
-    <nav className="footer-links">
-      <Link to="/about">About Us</Link>
-      <Link to="/terms">Terms & Conditions</Link>
-      <Link to="/contact">Contact Us</Link>
-    </nav>
-    <p>© 2025 7 Star Interior App. All rights reserved.</p>
-  </footer>
-  <a
-    href="https://chat.openai.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="chatgpt-fab"
-    title="ChatGPT 4o-mini"
-  >
-    <button style={{
-      background: '#10A37F',
-      color: 'white',
-      border: 'none',
-      padding: '0.75rem 1rem',
-      borderRadius: '50%',
-      fontSize: '1.2rem',
-      cursor: 'pointer'
-    }}>
-      :speech_balloon:
-    </button>
-  </a>
-</>
-
-
-
-
-
-
-
+      <footer>
+        <nav className="footer-links">
+          <Link to="/about">About Us</Link>
+          <Link to="/terms">Terms & Conditions</Link>
+          <Link to="/contact">Contact Us</Link>
+        </nav>
+        <p>© 2025 7 Star Interior App. All rights reserved.</p>
+      </footer>
+      <a
+        href="https://chat.openai.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="chatgpt-fab"
+        title="ChatGPT 4o-mini"
+      >
+        <button style={{
+          background: '#10A37F',
+          color: 'white',
+          border: 'none',
+          padding: '0.75rem 1rem',
+          borderRadius: '50%',
+          fontSize: '1.2rem',
+          cursor: 'pointer'
+        }}>
+          :speech_balloon:
+        </button>
+      </a>
     </div>
   );
 }
 export default function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
